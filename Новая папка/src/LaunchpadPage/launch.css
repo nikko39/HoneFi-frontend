@@ -1,0 +1,36 @@
+.launch_main{
+    text-align: center;
+}
+.launch_buttons{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    grid-gap: 30px;
+    flex-wrap: wrap;
+}
+.launch_ducomentation_button{
+    width: 244px;
+    height: 54px;
+    background: linear-gradient( to left,rgba(15, 13, 27, 1),rgba(23, 20, 43, 1) );
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.launch_submit_button{
+    width: 244px;
+    height: 54px;
+    border-radius: 15px;
+    color: white;
+    background: linear-gradient( to bottom,rgba(97, 89, 183, 1),rgba(68, 35, 97, 1) );
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

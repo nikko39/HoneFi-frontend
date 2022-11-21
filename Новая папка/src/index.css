@@ -1,0 +1,11 @@
+code {
+  font-family: 'Montserrat', sans-serif;
+
+  font-family: 'Odibee Sans', cursive;
+}
+
+@media (Max-width: 1023px) {
+  body{
+    padding-bottom: 100px;
+  }
+}
