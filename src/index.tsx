@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import Footer from './components/Footer';
 import { Provider } from 'react-redux';
+
 const defaultstate = {
   login: false,
   wallet: false

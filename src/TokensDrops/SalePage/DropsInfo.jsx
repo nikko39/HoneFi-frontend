@@ -9,7 +9,7 @@ import settingimg from '../../img/setting.png';
 import wax_img from '../../img/wax.png';
 import percent_img from '../../img/percent.png';
 import AnchorLink from 'anchor-link';
-import {GetLogo} from '../../api/api.jsx'
+import {GetLogo} from '../../api/api.js'
 import AnchorLinkBrowserTransport from 'anchor-link-browser-transport'
 const AnchorLinkConsoleTransport = require('anchor-link-console-transport');
 
@@ -99,7 +99,7 @@ const DropsInfo = (props) => {
     if ( prices < 0.1 ) { prices = 0.1 }
     const Price = prices.toFixed(2)
     function handleChange (event) {
-        setQuaniti(event.target.value)
+        setQuaniti(event.target.value.replace(/\D/, ''))
     }
     let pricepercent = parseInt((prices/parseInt(props.post.startprice)*100 - 100))
     return(
@@ -147,7 +147,7 @@ const DropsInfo = (props) => {
                         <p className="Available">Balance: 5</p>
                     </div>
                     <div className="input_quaniti">
-                        <p style={{'width': 'auto'}} className="quanity_input">{Quaniti*Price}</p>
+                        <p style={{'width': 'auto'}} className="quanity_input">{(Quaniti*Price).toFixed(2)}</p>
                     </div>
                 </div>
             </div>

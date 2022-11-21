@@ -6,6 +6,10 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
     "@tippyjs/react": "^4.2.6",
     "@types/react-redux": "^7.1.24",
     "@waxio/waxjs": "^1.1.0",
@@ -25,6 +29,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "stream-browserify": "^3.0.0",
+    "typescript": "^4.9.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

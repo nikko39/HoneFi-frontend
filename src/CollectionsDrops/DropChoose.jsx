@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
+import Input_wl from "../components/input_wl";
 
 const DropChoose = ({ ChangeFilter,ChangeActive, sorted, props }) =>{
     let [Drop, setDrop] = useState('balancer')
@@ -54,7 +55,7 @@ const DropChoose = ({ ChangeFilter,ChangeActive, sorted, props }) =>{
                 <option>Start</option>
                 <option>Price</option>
             </select>
-            <p><input onChange={() => { console.log(123)}} type="checkbox" /> Only Whitelisted</p>
+            <p><Input_wl /> Only Whitelisted</p>
         </div>
     )
 }

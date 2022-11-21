@@ -9,7 +9,7 @@ import settingimg from '../../img/setting.png';
 import wax_img from '../../img/wax.png';
 import percent_img from '../../img/percent.png';
 import AnchorLink from 'anchor-link';
-import {GetLogo} from '../../api/api.jsx'
+import {GetLogo} from '../../api/api.js'
 import AnchorLinkBrowserTransport from 'anchor-link-browser-transport'
 const AnchorLinkConsoleTransport = require('anchor-link-console-transport');
 

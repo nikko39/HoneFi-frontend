@@ -1,118 +1,38 @@
 import React, {useState, useEffect} from 'react';
 import '../../index.css';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import Graphic from '../../components/graphic';
 
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
-  hover: {
-    intersect: false
-  },
-  maintainAspectRatio: false,
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false
-    },
-    title: {
-      display: false,
-      text: 'Price History',
-    },
-    tooltips: {
-      display: false,
-      mode: false,
-      callbacks: {
-        title: function() {},
-        label: function() {}
-      }
-    }
-  },
-};
-
-const labels = ['','10:00', '14:00', '18:00',''];
-
-var month = [
-  'January','February','March','April','May','June','July','August','September','October','November','December'
-]
 const  DropsGraphic = (props) => {
+  const [time, setTime] = useState([])
+  const id = props.data.dropnum;
   const [Temp_img, setTemp_img] = useState('QmYyoWRWQ7MnhwyhybxTW9NAUF5rBNxQPqSPvnYSM8H48M')
   async function test() {
     fetch('https://test.wax.api.atomicassets.io/atomicassets/v1/templates/' + props.data.collection + '/' + props.data.templates)
     .then(data => data.json())
     .then(data => setTemp_img(data.data.immutable_data.img))
+
 }
   useEffect(() => {
     test();
-  }, []);
-  console.log(Temp_img)
-  const [About, setAbout] = useState(true);
-  const [HeaderText, setHeaderText] = useState('Header')
-  const [Text, setText] = useState('text')
-  const data = {
-    scales: {
-      xAxes: [{
-          display: true,
-          scaleLabel: {
-              display: true,
-              labelString: 'X axe name',
-              fontColor:'#000000',
-              fontSize:10
-          },
-          ticks: {
-             fontColor: "black",
-             fontSize: 14
-            }
-      }],
-      yAxes: [{
-          display: true,
-          scaleLabel: {
-              display: true,
-              labelString: 'Y axe name',
-              fontColor: '#FFFFF',
-              fontSize:10
-          },
-          ticks: {
-                fontColor: "black",
-                fontSize: 14
-          }
-      }]
-    },
-    labels,
-    datasets: [
-      {
-        label: '',
-        data: [parseInt(props.data.startprice),parseInt(props.data.startprice)*0.9,parseInt(props.data.startprice)*1.2,parseInt(props.data.startprice)*0.4,parseInt(props.data.startprice)*0.7],
-        borderColor: '#6159B7',
-        backgroundColor: 'rgba(255, 99, 132, 0)',
-        fill: false,
-        borderWidth: 4,
-        cubicInterpolationMode: 'monotone',
-        pointBorderColor: 'rgba(0, 0, 0, 0)',
-        pointBackgroundColor: 'rgba(0, 0, 0, 0)',
-        pointHoverBackgroundColor: 'rgb(255, 99, 132)',
-        pointHoverBorderColor: 'rgb(255, 99, 132)'
+    fetch(`http://localhost:5000/api/price/${id}`).then(data =>data.json()).then((data) => {
+      let array = [];
+      let array1 = [];
+      for(let i = 0;i < data.length; i++) {
+        array.push(data[i].price)
       }
-    ],
-  };
+      for(let i = 0;i < data.length; i++) {
+        array1.push(5)
+      }
+      setGrPrice(array)
+      setTime(array1)
+    })
+  }, []);
+  const [About, setAbout] = useState(true);
+  const [grPrice,setGrPrice] = useState([parseInt(props.data.startprice),parseInt(props.data.startprice)*0.9,parseInt(props.data.startprice)*1.2,parseInt(props.data.startprice)*0.4,parseInt(props.data.startprice)*0.7])
+  var month = [
+    'January','February','March','April','May','June','July','August','September','October','November','December'
+  ]
   let date_start = new Date (parseInt(props.data.dropstart * 1000));
   let date_end = new Date (parseInt(props.data.dropend * 1000));
   return (
@@ -130,7 +50,7 @@ const  DropsGraphic = (props) => {
       </p>
       <div className='div_grid_graph'>
           <div>
-            { About ? <Line data={data} options={options}/> : 
+            { About ? <Graphic grPrice={grPrice} labels={time} /> : 
             <>
               <div>
                 <img src=""/>

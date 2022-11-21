@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Upcommig from './Upcomming.jsx';
 import LiveDrops from "./LiveDrops.jsx";
 import {Component, useEffect} from 'react';
-import { GetDrops } from "../api/api.jsx";
+import {chainFetch} from "../api/api.js";
 import DropChoose from "./DropChoose.jsx";
 
 
@@ -17,7 +17,7 @@ const DropsPage = () => {
         SetActive(bool)
     }
     useEffect(() => {
-        GetDrops().then(data => setUpcommings(data.sort(function(a,b) { return a.dropstart - b.dropstart})))
+        chainFetch.GetDrops().then(data => setUpcommings(data.sort(function(a,b) { return a.dropstart - b.dropstart})))
     }, []);
     async function sorted(value){
         console.log(value)

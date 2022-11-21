@@ -107,14 +107,6 @@ body{
   cursor: pointer;
   font-weight: bold;
 }
-.drop_choose_button:hover{
-  color: rgba(79, 79, 217, 1);
-}
-.active{
-  color: rgba(79, 79, 217, 1);
-  border-bottom: 1px white solid;
-  padding-bottom: 6px;
-}
 .connect_wallet_button{
   background: none;
   color: #0D9C1B;
@@ -181,7 +173,7 @@ li {
 .what_is{
   color: white;
   font-size: 17px;
-  background-color: rgb(97, 89, 183);
+  background: linear-gradient(to bottom,rgb(97, 89, 183),rgb(68, 35, 97));
   width: 34px;
   height: 34px;
   border-radius: 10px;
@@ -378,6 +370,10 @@ li {
   border-radius: 7px;
   width: 80%;
   height: 28px;
+  padding-left: 10px;
+  color: #7872ED;
+  font-size: 13px;
+  font-weight: 600;
 }
 .button_filter{
   background-color: rgba(42, 40, 83, 1);
@@ -427,7 +423,7 @@ li {
   width: 49%;
   left: 4px;
   bottom: 4px;
-  background-color: #6159B7;
+  background: linear-gradient(to bottom,rgb(97, 89, 183),rgb(68, 35, 97));
   -webkit-transition: .4s;
   transition: .4s;
 }

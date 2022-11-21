@@ -4,9 +4,11 @@ import DropsInfo from "./DropsInfo";
 import Supply from "./Supply.jsx";
 import DropsGraphic from "./DropsGraphic";
 import CollectionInfo from "./CollectionInfo";
+import WebSock from '../../websocket/websocket';
 
 const TokenDropPage = () => {
     let id = parseInt(useParams().id);
+    WebSock(id)
     const [resp, setResp] = useState(0)
     async function dr(id) {
         fetch('https://testnet.waxsweden.org/v1/chain/get_table_rows', {

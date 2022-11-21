@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Upcommig from './Upcomming.jsx';
 import LiveDrops from "./LiveDrops.jsx";
 import {Component, useEffect} from 'react';
-import { GetTokenDrops } from "../api/api.jsx";
+import { GetTokenDrops } from "../api/api.js";
 import DropChoose from "./DropChoose.jsx";
 
 

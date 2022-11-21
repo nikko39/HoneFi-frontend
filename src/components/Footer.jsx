@@ -5,7 +5,7 @@ import discord_img from '../img/discord.png'
 import telegram_img from '../img/telegram.png'
 import github_img from '../img/github.png'
 import youtube_img from '../img/youtube.png'
-
+import './footer.css'
 
 function Footer() {
     return(

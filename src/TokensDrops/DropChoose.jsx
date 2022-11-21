@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
+import Input_wl from "../components/input_wl";
 
 const DropChoose = ({ ChangeFilter,ChangeActive, props }) =>{
     let [Drop, setDrop] = useState('balancer')
@@ -36,7 +37,7 @@ const DropChoose = ({ ChangeFilter,ChangeActive, props }) =>{
             <Tippy content={Drop == 'balancer' ? balanceInfo : datchInfo}><p className="what_is">?</p></Tippy>
             </div>
             <p>Status:</p>
-                <button style={props == true ? { 'background': 'linear-gradient(to bottom left, #6159B7 ,#442361)'} : {}} onClick={() => {ChangeActive(true)}} className="button_filter">
+                <button style={props ? { 'background': 'linear-gradient(to bottom left, #6159B7 ,#442361)'} : {}} onClick={() => {ChangeActive(true)}} className="button_filter">
                     <span style={{ 'display': 'flex', 'alignItems': 'center'}}>
                         <span style={{'width': '7px', 'height': '7px', 'background': 'green', 'borderRadius': '50%', "marginRight": '3px'}}/>
                         Active
@@ -51,10 +52,10 @@ const DropChoose = ({ ChangeFilter,ChangeActive, props }) =>{
             <p>Sort by:</p>
             <select className="select_filter">
                 <option value="1">Create</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="2">Start</option>
+                <option value="3">Price</option>
             </select>
-            <p><input onChange={() => { console.log(123)}} type="checkbox" /> Only Whitelisted</p>
+            <p><Input_wl /> Only Whitelisted</p>
         </div>
     )
 }
